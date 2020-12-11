@@ -4,7 +4,7 @@
 <h3>Weather in @weatherLocation</h3>
 
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>This component demonstrates fetching data from a weather api and displaying information and pictures dynamically.</p>
 
 
 
@@ -15,7 +15,6 @@
 else
 {
 
-
     <div class="mb-2 p-3 col-sm-5">
         <select class="form-control" @bind="key" @onclick="@GetDataAsync">
             <option selected disabled value="-1"> Select Location</option>
@@ -25,61 +24,89 @@ else
         </select>
     </div>
 
+    
+
     <br />
 
     @foreach (var weatherForecast in data.consolidated_weather)
     {
-        <div class="col-md-6 col-sm-12 col-lg-6 mt-2 mb-2 display:flex;">
+        <div class="col-md-5 col-sm-12 col-lg-6 mt-2 mb-2 display:flex;">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Date: @weatherForecast.applicable_date</h5>
                     <h6 class="card-subtitle mb-2 text">Weather State: @weatherForecast.weather_state_name</h6>
+                    <h6 class="card-subtitle mb-2 text-muted"> @weatherLocation  </h6>
                     <p class="card-text"> </p>
                     @if (weatherForecast.weather_state_name == "Light Rain")
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png style="width:175px; height:175px;"> </p>
                     }
                     else if (weatherForecast.weather_state_name == "Heavy Cloud")
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/cloudy.png style="width:175px; height:175px;"> </p>
                     }
                     else if (weatherForecast.weather_state_name == "Heavy Rain")
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain.png style="width:175px; height:175px;"> </p>
                     }
                     else if (weatherForecast.weather_state_name == "Showers")
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain_light.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain_light.png style="width:175px; height:175px;"> </p>
                     }
                     else if (weatherForecast.weather_state_name == "Light Cloud")
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png style="width:175px; height:175px;"> </p>
                     }
                     else if (weatherForecast.weather_state_name == "Clear")
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/sunny.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/sunny.png style="width:175px; height:175px;"> </p>
                     }
                     else
                     {
-                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png style="width:175px; height:175px;"> </p>
                     }
-                    <h6 class="card-subtitle mb-2 text">Temperature: @weatherForecast.the_temp C</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">Humidity: @weatherForecast.humidity C</h6>
+                    <h4 class="card-subtitle mb-2 text">Temperature: @weatherForecast.the_temp° @weatherForecast.tempSymbol</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Wind Speed: @weatherForecast.wind_speed</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Humidity: @weatherForecast.humidity</h6>
+
+
+                    <button class="btn btn-primary" @onclick="ConvertFahrenheit">Convert to Fahrenheit</button>
+                    <button class="btn btn-primary" @onclick="ConvertCelsius">Convert to Celsius</button>
                 </div>
             </div>
         </div>
     }
 }
-
+//Fix Convert Methods, Maybe use "bind" on the button then check what tempSymbol is then do an if to calculate?
 
 @code {
 
     private WeatherData data;
+    private Consolidated_Weather conWeather;
     private string key = "560743";
     string weatherLocation = "Dublin";
     private string errormessage;
     string uri = "https://meta-weather.now.sh/api/location/";
 
+
+    private void ConvertFahrenheit()
+    {
+        conWeather.the_temp = ((conWeather.the_temp  * 9 / 5) + 32);
+        conWeather.tempSymbol = 'F';
+    }
+
+    private void ConvertCelsius()
+    {
+        if (conWeather.tempSymbol == 'F')
+        {
+            conWeather.the_temp = ((conWeather.the_temp - 32) * 5 / 9);
+            conWeather.tempSymbol = 'C';
+        }
+        else
+        {
+            conWeather.the_temp = conWeather.the_temp;
+        }
+    }
 
     // https://meta-weather.now.sh/api/location/560743
     private async Task GetDataAsync()
@@ -119,6 +146,8 @@ else
     {
         await GetDataAsync();
     }
+
+
 
 
     public class WeatherData
@@ -162,6 +191,9 @@ else
         public int humidity { get; set; }
         public float visibility { get; set; }
         public int predictability { get; set; }
+
+        public char tempSymbol = 'C';
+
     }
 
     public class Source
