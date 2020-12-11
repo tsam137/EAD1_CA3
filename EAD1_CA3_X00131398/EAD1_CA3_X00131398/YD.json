@@ -2,7 +2,7 @@
   {
     "method": "GET",
     "headers": {
-      "Bearer-Token": "d8KcVpyqLxtuA57QLKLA_88oSUFTqaOIdIUqWgnF4S3ialJu2sSQPqZfGRtpmMT5MvNXDUtp0jP-awY8cN4DZaP6y0qzD0I21fwtT4gZRItMFHYDJHZCpdeYDyLOX3Yx"
+      "X-Auth-Token": "d8KcVpyqLxtuA57QLKLA_88oSUFTqaOIdIUqWgnF4S3ialJu2sSQPqZfGRtpmMT5MvNXDUtp0jP-awY8cN4DZaP6y0qzD0I21fwtT4gZRItMFHYDJHZCpdeYDyLOX3Yx"
     }
   }
 ]

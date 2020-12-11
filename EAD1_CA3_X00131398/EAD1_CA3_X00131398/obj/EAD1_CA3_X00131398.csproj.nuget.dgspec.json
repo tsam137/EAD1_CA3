@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj": {}
+    "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj": {
+    "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj",
+        "projectUniqueName": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj",
         "projectName": "EAD1_CA3_X00131398",
-        "projectPath": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj",
+        "projectPath": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398.csproj",
         "packagesPath": "C:\\Users\\tobas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\obj\\",
+        "outputPath": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tobas\\AppData\\Roaming\\NuGet\\NuGet.Config",
