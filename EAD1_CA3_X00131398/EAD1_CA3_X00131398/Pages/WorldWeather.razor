@@ -1,12 +1,12 @@
 ﻿@page "/weather"
 @inject HttpClient Http
 
-<h3>Weather in Tokyo</h3>
+<h3>Weather in @weatherLocation</h3>
 
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<pre><code>app.UseCors(policy => policy.WithOrigins("http://localhost:5000/", "https://localhost:5001/%22) .AllowAnyMethod() .WithHeaders(HeaderNames.ContentType));</code></pre>
+
 
 @if (data == null)
 {
@@ -15,45 +15,101 @@
 else
 {
 
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th>Date</th>
-                <th>Temp</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var weatherForecast in data.consolidated_weather)
-            {
-                <tr>
-                    <td>@weatherForecast.applicable_date</td>
-                    <td>@weatherForecast.the_temp</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="mb-2 p-3 col-sm-5">
+        <select class="form-control" @bind="key" @onclick="@GetDataAsync">
+            <option selected disabled value="-1"> Select Location</option>
+            <option value=560743> Dublin</option>
+            <option value=1118370> Tokyo</option>
+            <option value=44418> London</option>
+        </select>
+    </div>
+
+    <br />
+
+    @foreach (var weatherForecast in data.consolidated_weather)
+    {
+        <div class="col-md-6 col-sm-12 col-lg-6 mt-2 mb-2 display:flex;">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Date: @weatherForecast.applicable_date</h5>
+                    <h6 class="card-subtitle mb-2 text">Weather State: @weatherForecast.weather_state_name</h6>
+                    <p class="card-text"> </p>
+                    @if (weatherForecast.weather_state_name == "Light Rain")
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    else if (weatherForecast.weather_state_name == "Heavy Cloud")
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    else if (weatherForecast.weather_state_name == "Heavy Rain")
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    else if (weatherForecast.weather_state_name == "Showers")
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/rain_light.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    else if (weatherForecast.weather_state_name == "Light Cloud")
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    else if (weatherForecast.weather_state_name == "Clear")
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/sunny.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    else
+                    {
+                        <p> <img class="resize" src=https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png style="width:175px; height:175px;"> &#8203;</p>
+                    }
+                    <h6 class="card-subtitle mb-2 text">Temperature: @weatherForecast.the_temp C</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Humidity: @weatherForecast.humidity C</h6>
+                </div>
+            </div>
+        </div>
+    }
 }
+
+
 @code {
 
-    WeatherData data;
-    private Boolean found;
+    private WeatherData data;
+    private string key = "560743";
+    string weatherLocation = "Dublin";
     private string errormessage;
+    string uri = "https://meta-weather.now.sh/api/location/";
 
 
+    // https://meta-weather.now.sh/api/location/560743
     private async Task GetDataAsync()
     {
+
         try
         {
-            string uri = "https://www.metaweather.com/api/location/1118370/";
-            data = await Http.GetJsonAsync<WeatherData>(uri);
-            found = true;
+            if (key == "560743")
+            {
+                weatherLocation = "Dublin";
+            }
+
+            else if (key == "1118370")
+            {
+                weatherLocation = "Tokyo";
+            }
+
+            else if (key == "44418")
+            {
+                weatherLocation = "London";
+            }
+
+            data = await Http.GetJsonAsync<WeatherData>(uri + key + "/");
+
+
             errormessage = String.Empty;
         }
         catch (Exception e)
         {
 
-            found = false;
             errormessage = e.Message;
         }
 

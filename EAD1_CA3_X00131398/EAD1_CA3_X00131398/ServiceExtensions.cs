@@ -18,7 +18,6 @@ namespace EAD1_CA3_X00131398
         public static async Task<T> GetJsonAsync<T>(this HttpClient httpClient, string url)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, url);
-            request.Headers.Add("Access-Control-Allow-Origin", "*");
 
 
             var response = await httpClient.SendAsync(request);
@@ -26,8 +25,6 @@ namespace EAD1_CA3_X00131398
             response.EnsureSuccessStatusCode();
 
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
-
-
             return JsonSerializer.Deserialize<T>(responseBytes, new JsonSerializerOptions { });
         }
     }
