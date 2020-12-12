@@ -117,6 +117,13 @@ app {
     color: red;
 }
 
+#container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
