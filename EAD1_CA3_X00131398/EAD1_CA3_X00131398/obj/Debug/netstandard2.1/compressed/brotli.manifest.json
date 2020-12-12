@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\iwclKkgSakON7AsHwiEij4bSvJODcsVXgAhoSjoqBb8=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\F0FwUyLJ_LgLbBTnF32IjIkSYbf1hLYloYxk20WjTHI=.hash",
       "Source": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\EAD1_CA3_X00131398.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/EAD1_CA3_X00131398.dll.br"
     },
@@ -261,7 +261,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ckQjjJ7cfApsBw2wY5616IJ8v1ZVLwELaN28ntTQHBk=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\E_jTTvEz9y66rqDUlrXkvQ80oyTKQ-3tV6uY5fYtfp8=.hash",
       "Source": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\EAD1_CA3_X00131398.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/EAD1_CA3_X00131398.pdb.br"
     },
@@ -286,7 +286,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\4-Kq3lQtIXJGLZG4OZpiYXg9YPxzM5BZDZhoUd4T0mk=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\tQ-RUK7u7xPKKj6zR6Ott_kRMOraY_RZZ4bSWOgJKRw=.hash",
       "Source": "C:\\Users\\tobas\\OneDrive\\TUD T\\EAD1\\EAD1_CA3\\EAD1_CA3_X00131398\\EAD1_CA3_X00131398\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     }
