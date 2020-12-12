@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EAD1_CA3_X00131398
 {
+    //Method credited to Ryan as I couldn't find how to reimpliment GetJsonAsync method appropriately
     public static class ServiceExtensions
     {
         public static async Task<T> GetJsonAsync<T>(this HttpClient httpClient, string url)

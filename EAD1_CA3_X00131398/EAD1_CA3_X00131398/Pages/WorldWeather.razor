@@ -4,7 +4,7 @@
 <h3>Weather in @weatherLocation</h3>
 
 
-<p>This component demonstrates fetching data from a weather api and displaying information and pictures dynamically.</p>
+<p>This component demonstrates fetching data from a weather API and displaying information and pictures dynamically.</p>
 
 
 
@@ -15,12 +15,14 @@
 else
 {
     //User can select a Location from the dropdown menu and it sets the forecast location to the speicifed location through the key value
+    //Had to Math.Celeing to show no decimal place for the degrees and for the wind speed.
     <div class="mb-2 p-3 col-sm-5">
         <select class="form-control" @bind="key" @onclick="@GetDataAsync">
             <option selected disabled value="-1"> Select Location</option>
             <option value=560743> Dublin</option>
             <option value=1118370> Tokyo</option>
             <option value=44418> London</option>
+            <option value=650272> Frankfurt</option>
         </select>
     </div>
 
@@ -37,59 +39,60 @@ else
     //I added an if statement that checks if the state of the weather is a certain state then adds the suitable image of that state to the forecast cards
     @foreach (var weatherForecast in data.consolidated_weather)
     {
-      <div id="container">
-        <div class="col-md-5 col-sm-12 col-lg-6 mt-2 mb-2">
+      
+        <div class="col-md-5 col-sm-12 col-lg-5 mt-2 mb-2">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Date: @weatherForecast.applicable_date</h5>
-                    <h6 class="card-subtitle mb-2 text">Weather State: @weatherForecast.weather_state_name</h6>
-                    <h6 class="card-subtitle mb-2 text-muted"> @weatherLocation  </h6>
-                    <p class="card-text"> </p>
-                    @if (weatherForecast.weather_state_name == "Light Rain")
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-3.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    else if (weatherForecast.weather_state_name == "Heavy Cloud")
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-2.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    else if (weatherForecast.weather_state_name == "Heavy Rain")
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-3.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    else if (weatherForecast.weather_state_name == "Showers")
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-3.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    else if (weatherForecast.weather_state_name == "Light Cloud")
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-2.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    else if (weatherForecast.weather_state_name == "Clear")
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-4.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    else
-                    {
-                        <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-2.jpg style="width:175px; height:175px;"> </p>
-                    }
-                    <p></p>
-                    @if (tempSymbol == 'F')
-                    {
-                        var farenheit = (weatherForecast.the_temp * 9 / 5) +32;
-                        Math.Floor(farenheit);
-                        <h4 class="card-subtitle mb-2 text">Temperature: @Math.Ceiling(farenheit)° @tempSymbol</h4>
-                    }
-                    else if (tempSymbol == 'C')
-                    {
-                        var celsius = weatherForecast.the_temp;
-                        <h4 class="card-subtitle mb-2 text">Temperature: @Math.Ceiling(celsius)° @tempSymbol</h4>
-                    }
-                    <h6 class="card-subtitle mb-2 text-muted">Wind Speed: @weatherForecast.wind_speed</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">Humidity: @weatherForecast.humidity</h6>
+                <div id="container">
+                    <div class="card-body">
+                        <h5 class="card-title">Date: @weatherForecast.applicable_date</h5>
+                        <h6 class="card-subtitle mb-2 text">Weather State: @weatherForecast.weather_state_name</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"> @weatherLocation  </h6>
+                        <p class="card-text"> </p>
+                        @if (weatherForecast.weather_state_name == "Light Rain")
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-3.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        else if (weatherForecast.weather_state_name == "Heavy Cloud")
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-2.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        else if (weatherForecast.weather_state_name == "Heavy Rain")
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-3.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        else if (weatherForecast.weather_state_name == "Showers")
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-3.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        else if (weatherForecast.weather_state_name == "Light Cloud")
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-2.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        else if (weatherForecast.weather_state_name == "Clear")
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-4.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        else
+                        {
+                            <p> <img class="resize" src=https://icon-library.com/images/weather-icon-gif/weather-icon-gif-2.jpg style="width:175px; height:175px;"> </p>
+                        }
+                        <p></p>
+                        @if (tempSymbol == 'F')
+                        {
+                            var farenheit = (weatherForecast.the_temp * 9 / 5) + 32;
+                            Math.Floor(farenheit);
+                            <h4 class="card-subtitle mb-2 text">Temperature: @Math.Ceiling(farenheit)° @tempSymbol</h4>
+                        }
+                        else if (tempSymbol == 'C')
+                        {
+                            var celsius = weatherForecast.the_temp;
+                            <h4 class="card-subtitle mb-2 text">Temperature: @Math.Ceiling(celsius)° @tempSymbol</h4>
+                        }
+                        <h6 class="card-subtitle mb-2 text-muted">Wind Speed: @Math.Ceiling(weatherForecast.wind_speed)mph</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Humidity: @weatherForecast.humidity</h6>
+                    </div>
                 </div>
             </div>
-        </div>
      </div>
     }
 }
@@ -118,17 +121,21 @@ else
             //Checks the key and if the key matches the key from the dropdown above then it sets the forecast location to the speicifed location
             if (key == "560743")
             {
-                weatherLocation = "Dublin";
+                weatherLocation = "Dublin, Ireland";
             }
 
             else if (key == "1118370")
             {
-                weatherLocation = "Tokyo";
+                weatherLocation = "Tokyo, Japan";
             }
 
             else if (key == "44418")
             {
-                weatherLocation = "London";
+                weatherLocation = "London, England";
+            }
+            else if(key == "650272")
+            {
+                weatherLocation = "Frankfurt, Germany";
             }
 
             data = await Http.GetJsonAsync<WeatherData>(uri + key + "/");
