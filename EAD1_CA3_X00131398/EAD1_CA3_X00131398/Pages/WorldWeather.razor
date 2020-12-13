@@ -23,6 +23,12 @@ else
             <option value=1118370> Tokyo</option>
             <option value=44418> London</option>
             <option value=650272> Frankfurt</option>
+            <option value=1105779> Sydney</option>
+            <option value=721943> Rome</option>
+            <option value=1591691> Cape Town</option>
+            <option value=2442047> Los Angeles</option>
+            <option value=766273> Madrid</option>
+            <option value=12586539> Mumbai</option>
         </select>
     </div>
 
@@ -137,6 +143,30 @@ else
             {
                 weatherLocation = "Frankfurt, Germany";
             }
+            else if(key == "1105779")
+            {
+                weatherLocation = "Sydney, Australia";
+            }
+            else if(key == "721943")
+            {
+                weatherLocation = "Rome, Italy";
+            }
+            else if(key == "1591691")
+            {
+                weatherLocation = "Cape Town, South Africa";
+            }
+            else if(key == "2442047")
+            {
+                weatherLocation = "Los Angeles, California";
+            }
+            else if(key == "766273")
+            {
+                weatherLocation = "Madrid, Spain";
+            }
+            else if(key == "12586539")
+            {
+                weatherLocation = "Mumbai, India";
+            }
 
             data = await Http.GetJsonAsync<WeatherData>(uri + key + "/");
 
@@ -216,5 +246,6 @@ else
         public string url { get; set; }
         public int crawl_rate { get; set; }
     }
+
 
 }

@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="EAD1_CA3_X00131398">
+    <type fullname="*" required="true" />
+  </assembly>
+</linker>
