@@ -30,6 +30,18 @@ obj\Debug\netstandard2.1\blazor\unlinked\System.Data.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Numerics.Vectors.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Text.Encodings.Web.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+obj\Debug\netstandard2.1\blazor\unlinked\xunit.assert.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Reflection.Extensions.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Globalization.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Runtime.Extensions.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Linq.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Reflection.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Text.RegularExpressions.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.ObjectModel.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Threading.Tasks.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Collections.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Diagnostics.Debug.dll
+obj\Debug\netstandard2.1\blazor\unlinked\System.Runtime.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.AspNetCore.Components.Web.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.AspNetCore.Components.Forms.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.ComponentModel.Annotations.dll
@@ -50,4 +62,6 @@ obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.Extensions.Logging.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.Extensions.Options.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.JSInterop.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.JSInterop.WebAssembly.dll
+obj\Debug\netstandard2.1\blazor\unlinked\xunit.core.dll
+obj\Debug\netstandard2.1\blazor\unlinked\xunit.abstractions.dll
 obj\Debug\netstandard2.1\blazor\unlinked\EAD1_CA3_X00131398.pdb
