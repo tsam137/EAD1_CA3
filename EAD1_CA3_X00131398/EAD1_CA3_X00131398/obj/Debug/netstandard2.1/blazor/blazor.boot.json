@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "EAD1_CA3_X00131398.dll": "sha256-6TWzSkte3XDLBFxGVA+wCrCH2sAqPYZ0eZW\/UWLej\/E=",
+      "EAD1_CA3_X00131398.dll": "sha256-AuTdyBgiIEMIAt0cgqjC5eXis4K9oSASgGm9Rz\/W4S0=",
       "System.Net.Http.Json.dll": "sha256-99dseBOagY3mzu5Y8Eqm8gRI+o8QbbCp7R2Ew9bQ+5E=",
       "System.Buffers.dll": "sha256-ZxXy75PYbzJxNfAc\/SAP1nUYm4gt1jSaOpFnBb9m85M=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -74,7 +74,7 @@
       "xunit.abstractions.dll": "sha256-MWbccDI\/swzPHO2w\/obyrRIsRtJUVCNC2QOG78TJKFw="
     },
     "pdb": {
-      "EAD1_CA3_X00131398.pdb": "sha256-Jnv8biG8k\/aUD9EEc4RyKGcCPzUV\/9G0KMgymAPxxwU="
+      "EAD1_CA3_X00131398.pdb": "sha256-fRC06hUoQZ4TVCNN51v\/jMHdwf0fqF1Uv8k0kcJqyEw="
     },
     "runtime": {
       "dotnet.3.2.0.js": "sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=",

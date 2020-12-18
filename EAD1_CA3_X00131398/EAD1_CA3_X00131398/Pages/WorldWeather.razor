@@ -41,11 +41,16 @@ else
         </select>
     </div>
 
+    <input class="form-control col-md-8" type="text" placeholder="Search by date: 2020-12-21"
+           @bind="searchFilter"
+           @bind:event="oninput">
+
     <br />
     //I added an if statement that checks if the state of the weather is a certain state then adds the suitable image of that state to the forecast cards
     @foreach (var weatherForecast in data.consolidated_weather)
     {
-      
+        if (!searchThrough(weatherForecast))
+            continue;
         <div class="col-md-5 col-sm-12 col-lg-5 mt-2 mb-2">
             <div class="card">
                 <div id="container">
@@ -99,7 +104,7 @@ else
                     </div>
                 </div>
             </div>
-     </div>
+        </div>
     }
 }
 
@@ -116,7 +121,7 @@ else
     public char tempSymbol = 'C';                                   //Symbol to identify which degrees is being displayed
     private string errormessage;
     string uri = "https://meta-weather.now.sh/api/location/";
-
+    public string searchFilter { get; set; }
 
     // https://meta-weather.now.sh/api/location/560743
     private async Task GetDataAsync()
@@ -139,31 +144,31 @@ else
             {
                 weatherLocation = "London, England";
             }
-            else if(key == "650272")
+            else if (key == "650272")
             {
                 weatherLocation = "Frankfurt, Germany";
             }
-            else if(key == "1105779")
+            else if (key == "1105779")
             {
                 weatherLocation = "Sydney, Australia";
             }
-            else if(key == "721943")
+            else if (key == "721943")
             {
                 weatherLocation = "Rome, Italy";
             }
-            else if(key == "1591691")
+            else if (key == "1591691")
             {
                 weatherLocation = "Cape Town, South Africa";
             }
-            else if(key == "2442047")
+            else if (key == "2442047")
             {
                 weatherLocation = "Los Angeles, California";
             }
-            else if(key == "766273")
+            else if (key == "766273")
             {
                 weatherLocation = "Madrid, Spain";
             }
-            else if(key == "12586539")
+            else if (key == "12586539")
             {
                 weatherLocation = "Mumbai, India";
             }
@@ -187,6 +192,26 @@ else
         await GetDataAsync();
     }
 
+    //This method allows me to search through the API and get the weather forecast by date.
+    public bool searchThrough(Consolidated_Weather weather)
+    {
+        if (string.IsNullOrEmpty(searchFilter))
+        {
+            return true;
+        }
+
+
+        if (weather.applicable_date.Contains(searchFilter, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+
+    }
 
     //
     //Models
